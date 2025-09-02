@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - EventFinderCAT - San Fernando del Valle de Catamarca</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>EventFinderCAT 🏔️</h1>
+                <span class="subtitle">San Fernando del Valle de Catamarca</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="events.html" class="active">Eventos</a></li>
+                <li><a href="addevent.html">Agregar Evento</a></li>
+                <li><a href="index.html#about">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="events-hero">
+            <div class="container">
+                <h1>Eventos en Catamarca</h1>
+                <p>Descubrí todos los eventos happening en San Fernando del Valle</p>
+            </div>
+        </section>
+
+        <section class="events-filters">
+            <div class="container">
+                <div class="filters-container">
+                    <h2>Filtrar Eventos</h2>
+                    <div class="filters-grid">
+                        <select id="category-filter" class="filter-select">
+                            <option value="all">Todas las categorías</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="musica">Música</option>
+                            <option value="deportes">Deportes</option>
+                            <option value="gastronomia">Gastronomía</option>
+                            <option value="artesania">Artesanía</option>
+                            <option value="fiesta">Fiesta</option>
+                        </select>
+
+                        <input type="date" id="date-filter" class="filter-input" placeholder="Filtrar por fecha">
+
+                        <input type="text" id="search-filter" class="filter-input" placeholder="Buscar eventos...">
+
+                        <select id="location-filter" class="filter-select">
+                            <option value="all">Todas las ubicaciones</option>
+                            <option value="centro">Centro</option>
+                            <option value="plaza-25-mayo">Plaza 25 de Mayo</option>
+                            <option value="predio-ferial">Predio Ferial</option>
+                            <option value="mercado-norte">Mercado Norte</option>
+                            <option value="costanera">Costanera</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="events-catalog">
+            <div class="container">
+                <div class="events-header">
+                    <h2 id="events-count">Cargando eventos...</h2>
+                    <button id="reset-filters" class="cta-button secondary">Limpiar Filtros</button>
+                </div>
+
+                <div id="events-container" class="events-grid">
+                    <!-- Los eventos se cargarán con JavaScript -->
+                </div>
+
+                <div id="no-events" class="no-events" style="display: none;">
+                    <h3>😔 No se encontraron eventos</h3>
+                    <p>Intenta con otros filtros o <a href="addevent.html">agrega un nuevo evento</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <h2>Eventos en el Mapa de Catamarca</h2>
+                <div id="map-container" class="map-container">
+                    <div id="map" style="height: 400px; border-radius: 15px; background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                        <p>Cargando mapa de San Fernando del Valle de Catamarca...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EventFinderCAT</h3>
+                    <p>La plataforma líder de eventos en San Fernando del Valle de Catamarca</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>📧 beniciosoto@gmail.com</p>
+                    <p>📞 +54 3833-123456</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Ubicación</h3>
+                    <p>San Fernando del Valle de Catamarca, Argentina</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EventFinderCAT - Todos los derechos reservados | Hecho con ❤️ para Catamarca</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/events.js"></script>
+    <script src="js/map.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</body>
+</html>

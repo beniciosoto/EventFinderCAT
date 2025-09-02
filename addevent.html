@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Evento - EventFinderCAT - San Fernando del Valle de Catamarca</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <style>
+        .form-section {
+            padding: 4rem 0;
+            background: var(--color-light);
+        }
+
+        .event-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-catamarca);
+            box-shadow: 0 0 0 3px rgba(142, 68, 173, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .form-notification {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: none;
+        }
+
+        .form-notification.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-notification.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .location-preview {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-catamarca);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>EventFinderCAT 🏔️</h1>
+                <span class="subtitle">San Fernando del Valle de Catamarca</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="events.html">Eventos</a></li>
+                <li><a href="addevent.html" class="active">Agregar Evento</a></li>
+                <li><a href="index.html#about">Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-hero">
+            <div class="container">
+                <h1>Agregar Nuevo Evento</h1>
+                <p>Compartí tu evento con la comunidad catamarqueña</p>
+            </div>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <div class="event-form">
+                    <div id="form-notification" class="form-notification"></div>
+
+                    <form id="add-event-form">
+                        <div class="form-group">
+                            <label for="event-title">Título del Evento *</label>
+                            <input type="text" id="event-title" class="form-control" required placeholder="Ej: Feria Artesanal Catamarqueña">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-category">Categoría *</label>
+                            <select id="event-category" class="form-control" required>
+                                <option value="">Seleccionar categoría</option>
+                                <option value="cultural">Cultural</option>
+                                <option value="musica">Música</option>
+                                <option value="deportes">Deportes</option>
+                                <option value="gastronomia">Gastronomía</option>
+                                <option value="artesania">Artesanía</option>
+                                <option value="fiesta">Fiesta</option>
+                                <option value="educacion">Educación</option>
+                                <option value="negocios">Negocios</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-date">Fecha del Evento *</label>
+                            <input type="date" id="event-date" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-time">Hora *</label>
+                            <input type="time" id="event-time" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-location">Ubicación *</label>
+                            <select id="event-location" class="form-control" required>
+                                <option value="">Seleccionar ubicación</option>
+                                <option value="Plaza 25 de Mayo">Plaza 25 de Mayo</option>
+                                <option value="Predio Ferial Catamarca">Predio Ferial Catamarca</option>
+                                <option value="Mercado Norte">Mercado Norte</option>
+                                <option value="Costanera">Costanera</option>
+                                <option value="Teatro Municipal">Teatro Municipal</option>
+                                <option value="Paseo General Navarro">Paseo General Navarro</option>
+                                <option value="otros">Otro lugar (especificar en descripción)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-address">Dirección específica</label>
+                            <input type="text" id="event-address" class="form-control" placeholder="Ej: Av. Belgrano 500">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-description">Descripción del Evento *</label>
+                            <textarea id="event-description" class="form-control" required placeholder="Describí tu evento en detalle..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-organizer">Organizador *</label>
+                            <input type="text" id="event-organizer" class="form-control" required placeholder="Nombre del organizador o organización">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-contact">Contacto</label>
+                            <input type="text" id="event-contact" class="form-control" placeholder="Email o teléfono para consultas">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="event-price">Precio</label>
+                            <input type="text" id="event-price" class="form-control" placeholder="Ej: Gratis, $500, Entrada libre">
+                        </div>
+
+                        <div class="form-submit">
+                            <button type="submit" class="cta-button">Publicar Evento</button>
+                            <button type="reset" class="cta-button secondary">Limpiar Formulario</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EventFinderCAT</h3>
+                    <p>La plataforma líder de eventos en San Fernando del Valle de Catamarca</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>📧 beniciosoto@gmail.com</p>
+                    <p>📞 +54 3833-123456</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Ubicación</h3>
+                    <p>San Fernando del Valle de Catamarca, Argentina</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EventFinderCAT - Todos los derechos reservados | Hecho con ❤️ para Catamarca</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/addevent.js"></script>
+</body>
+</html>
